@@ -1,10 +1,8 @@
-const express = require('express');
+const express = require('express'); //esta fue de las lineas que tuve que cambiar para que me dejara de dar el warning raro, no se si es porque tengo iOS
 const app = express();
-const port = 3000; // Mantengo tu puerto típico
+const port = 3000; 
 
-// Comentario Express: Sirve archivos estáticos (CSS, JS, imágenes) automáticamente - súper simple vs http nativo.
-// Crea carpeta 'public' y mete tu arbol.jpg ahí.
-app.use(express.static('SOFTWAREexpress'));
+app.use(express.static('SOFTWAREexpress')); //aqui esto se em hizo medio confuso, pero entiendo que es lo que hace
 
 app.get('/arbol-universidad', (req, res) => {
   res.send(`
@@ -15,11 +13,12 @@ app.get('/arbol-universidad', (req, res) => {
 });
 
 
-app.use((req, res) => {
+app.use((req, res) => { //en generals e me hace muy buena herramientaexpress
   res.status(404).send('Ruta no encontrada');
 });
 
 
+//esto me gustó porque senti que se parece un poco a las rutas (que uan vez vi el python en la prepa)
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
   
